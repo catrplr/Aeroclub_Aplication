@@ -1,3 +1,5 @@
+//
+
 //power from pin 10
 
 const int pin = 10;
@@ -103,21 +105,15 @@ void setup()
   const int totalNotes = sizeof(notes) / sizeof(int);
   // Looping through each note
   for (int i = 0; i < totalNotes; i++)
-  {
-    const int currentNote = notes[i];
-    float wait = durations[i] / songSpeed;
-    // Play tone if currentNote is not 0 frequency, otherwise pause (noTone)
-    if (currentNote != 0)
-    {
-      tone(pin, notes[i], wait); // tone(pin, frequency, duration)
-    }
-    else
-    {
-      noTone(pin);
-    }
-    // delay is used to wait for tone to finish playing before moving to next loop
-    delay(wait);
-  }
+      {
+        const int currentNote = notes[i];
+        float wait = durations[i] / songSpeed;
+        if (currentNote != 0)
+              {tone(pin, notes[i], wait);}
+        else
+              {noTone(pin);}
+        delay(wait);
+      }
 }
 
 void loop()
